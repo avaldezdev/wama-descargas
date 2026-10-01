@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Print Agent · Descargas WAMA</title>
+  <meta name="description" content="Descargá el agente de impresión de WAMA para Android: imprime las comandas del POS directo en las impresoras de cocina.">
+  <link rel="icon" href="/assets/wama-icon.png">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <img src="/assets/wama-icon.png" alt="WAMA">
+      <a class="brand" href="/">WAMA <span>Descargas</span></a>
+      <a class="back" href="/">← Todas las descargas</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Print Agent para Android</h1>
+      <p>Imprime las comandas de Wama-SIS directo en las impresoras de cocina, barra o cada
+         estación, sin pasar por el diálogo de impresión del navegador.</p>
+    </section>
+
+    <!-- 1. Descarga -->
+    <section class="download" aria-label="Descarga">
+      <div>
+        <div class="version-line" id="versionLine">Última versión</div>
+        <a class="btn" id="downloadBtn"
+           href="https://github.com/avaldezdev/wama-print-agent-releases/releases/latest/download/PrintAgent.apk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Descargar para Android
+        </a>
+        <div class="small">Abrí esta página desde la tablet o el celular que va a quedar en el local.
+          Requiere Android 8 o superior.</div>
+      </div>
+      <div class="qr">
+        <img src="/assets/qr-print-agent.svg" alt="Código QR de esta página">
+        Escaneá con la tablet
+      </div>
+    </section>
+
+    <!-- 2. Pasos -->
+    <h2>Cómo instalarlo</h2>
+    <ol class="steps">
+      <li class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Descargá</h3>
+          <p>Tocá <b>Descargar para Android</b>. Si el navegador avisa que <i>"el archivo puede ser
+             dañino"</i>, tocá <b>Descargar de todas formas</b>: el aviso aparece con cualquier app
+             que no venga de Play Store.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Instalá</h3>
+          <ol>
+            <li>Abrí el archivo descargado (desde la notificación o desde <b>Descargas</b>).</li>
+            <li>Si Android lo pide, activá <b>Permitir de esta fuente</b> y volvé atrás.</li>
+            <li>Tocá <b>Instalar</b> (o <b>Actualizar</b> si ya lo tenías). Si Play Protect pregunta,
+                elegí <b>Instalar de todas formas</b>.</li>
+          </ol>
+          <div class="note">Al actualizar no se pierde nada: la configuración queda guardada.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Configurá</h3>
+          <p>Abrí <b>Print Agent</b> y completá:</p>
+          <dl class="fields">
+            <div><dt>Servidor</dt><dd><code>https://wama.micdepos.com</code> (ya viene cargado)</dd></div>
+            <div><dt>Token</dt><dd>El que se crea en Wama-SIS, en <b>Configuraciones › Tokens API</b>.</dd></div>
+            <div><dt>IP impresora por defecto</dt><dd>La impresora que recibe los productos sin estación (en general, la de cocina).</dd></div>
+            <div><dt>Puerto</dt><dd><code>9100</code></dd></div>
+            <div><dt>Ancho de papel</dt><dd>80 mm o 58 mm, según la impresora.</dd></div>
+          </dl>
+          <p style="margin-top:12px">Tocá <b>Probar conexión</b> (tiene que responder OK) y después
+             <b>Imprimir prueba</b>.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">4</div>
+        <div>
+          <h3>Empezá a usar</h3>
+          <ul>
+            <li>Tocá <b>Activar agente</b> y aceptá el permiso de notificaciones.</li>
+            <li>En los ajustes de Android, quitá la <b>optimización de batería</b> para Print Agent.</li>
+            <li>Dejá la tablet <b>enchufada</b> y conectada al Wi-Fi del local.</li>
+          </ul>
+          <p style="margin-top:8px">Listo: cada comanda que se suspende en el POS sale sola en la
+             impresora de su estación.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="note" style="margin-top:16px">
+      ¿Primera instalación en un local? Antes hay que preparar Wama-SIS (módulos, impresoras,
+      estaciones y productos). Seguí el
+      <a href="/assets/checklist-print-agent.pdf" download>checklist completo en PDF</a>.
+    </div>
+
+    <!-- 3. Novedades -->
+    <h2>Novedades</h2>
+    <div class="changes" id="changes">
+      <p>Consultá las novedades en el
+        <a href="https://github.com/avaldezdev/wama-print-agent-releases/releases">historial de versiones</a>.</p>
+    </div>
+    <p class="small"><a href="https://github.com/avaldezdev/wama-print-agent-releases/releases">Ver versiones anteriores</a></p>
+  </main>
+
+  <footer>
+    <div class="wrap">WAMA · Soluciones tecnológicas · <a href="https://wama.com.py">wama.com.py</a></div>
+  </footer>
+
+  <script src="/js/print-agent.js"></script>
+</body>
+</html>

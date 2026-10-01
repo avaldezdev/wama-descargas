@@ -1,0 +1,127 @@
+:root {
+  --brand: #0055ff;
+  --brand-dark: #0040c4;
+  --ink: #0d141a;
+  --muted: #5b6672;
+  --line: #e3e8ef;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --soft: #eaf1ff;
+  --warn-bg: #fff7e6;
+  --warn-line: #f5c46b;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+a { color: var(--brand); }
+
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+/* --- Barra superior --- */
+.topbar { background: var(--card); border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; gap: 12px; height: 64px; }
+.topbar img { width: 40px; height: 40px; }
+.topbar .brand { font-weight: 700; font-size: 18px; color: var(--ink); text-decoration: none; }
+.topbar .brand span { color: var(--muted); font-weight: 500; }
+.topbar .back { margin-left: auto; font-size: 14px; text-decoration: none; }
+
+/* --- Hero --- */
+.hero { padding: 40px 0 8px; }
+.hero h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.15; margin: 0 0 10px; }
+.hero p { color: var(--muted); font-size: 17px; margin: 0; max-width: 640px; }
+
+/* --- Tarjeta de descarga --- */
+.download {
+  margin: 28px 0 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+.version-line { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+.version-line strong { color: var(--ink); font-size: 16px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--brand); color: #fff; text-decoration: none;
+  font-weight: 700; font-size: 18px;
+  padding: 16px 26px; border-radius: 12px;
+}
+.btn:hover { background: var(--brand-dark); }
+.btn svg { width: 22px; height: 22px; }
+.small { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.qr { text-align: center; font-size: 12px; color: var(--muted); }
+.qr img { width: 150px; height: 150px; display: block; margin: 0 auto 6px; }
+
+/* --- Pasos --- */
+h2 { font-size: 22px; margin: 44px 0 16px; }
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.step {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 22px; display: grid; grid-template-columns: 44px 1fr; gap: 16px;
+}
+.step .num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--soft); color: var(--brand);
+  display: grid; place-items: center; font-weight: 800; font-size: 19px;
+}
+.step h3 { margin: 6px 0 6px; font-size: 18px; }
+.step p { margin: 0 0 8px; }
+.step ol, .step ul { margin: 6px 0 0; padding-left: 20px; }
+.step li { margin: 4px 0; }
+
+.fields { margin: 10px 0 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.fields div { display: grid; grid-template-columns: 170px 1fr; border-top: 1px solid var(--line); }
+.fields div:first-child { border-top: 0; }
+.fields dt, .fields dd { margin: 0; padding: 9px 12px; font-size: 15px; }
+.fields dt { background: var(--bg); font-weight: 600; }
+.fields code { font-size: 14px; }
+
+.note {
+  background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px;
+  padding: 10px 14px; font-size: 14px; margin-top: 10px;
+}
+
+/* --- Novedades --- */
+.changes { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px; }
+.changes h3 { margin: 0 0 6px; font-size: 16px; }
+.changes ul { margin: 6px 0 0; padding-left: 20px; }
+.changes p { margin: 6px 0 0; color: var(--muted); }
+
+/* --- Portal (index) --- */
+.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 28px 0; }
+.product {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; text-decoration: none; color: inherit; display: block;
+}
+.product:hover { border-color: var(--brand); }
+.product .icon {
+  width: 48px; height: 48px; border-radius: 12px; background: var(--soft); color: var(--brand);
+  display: grid; place-items: center; margin-bottom: 12px;
+}
+.product .icon svg { width: 26px; height: 26px; }
+.product h3 { margin: 0 0 4px; font-size: 18px; }
+.product p { margin: 0; color: var(--muted); font-size: 15px; }
+.product .tag { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--brand); }
+
+footer { margin: 56px 0 0; padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+
+@media (max-width: 640px) {
+  .download { grid-template-columns: 1fr; }
+  .qr { display: none; }   /* en el celular no tiene sentido escanearse a sí mismo */
+  .btn { width: 100%; justify-content: center; }
+  .fields div { grid-template-columns: 1fr; }
+  .fields dt { padding-bottom: 2px; }
+}
