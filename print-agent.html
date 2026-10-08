@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Print Agent · Descargas WAMA</title>
-  <meta name="description" content="Descargá el agente de impresión de WAMA para Android: imprime las comandas del POS directo en las impresoras de cocina.">
+  <meta name="description" content="Descargá el agente de impresión de WAMA para Android y Windows: imprime las comandas del POS directo en las impresoras de cocina.">
   <link rel="icon" href="/assets/wama-icon.png">
   <link rel="stylesheet" href="/css/site.css">
 </head>
@@ -19,10 +19,15 @@
 
   <main class="wrap">
     <section class="hero">
-      <h1>Print Agent para Android</h1>
+      <h1>Print Agent</h1>
       <p>Imprime las comandas de Wama-SIS directo en las impresoras de cocina, barra o cada
          estación, sin pasar por el diálogo de impresión del navegador.</p>
+      <p class="small">Para <a href="#android">Android</a> (celulares y tablets de los mozos) y para
+         <a href="#windows">Windows</a> (la notebook o PC desde la que se vende). Pueden funcionar
+         todos a la vez en el mismo local: cada comanda sale una sola vez.</p>
     </section>
+
+    <h2 id="android">Para Android</h2>
 
     <!-- 1. Descarga -->
     <section class="download" aria-label="Descarga">
@@ -104,8 +109,60 @@
       <a href="/assets/checklist-print-agent.pdf" download>checklist completo en PDF</a>.
     </div>
 
+    <!-- Windows -->
+    <h2 id="windows">Para Windows</h2>
+    <p>Para la notebook o PC desde la que se vende en Wama-SIS: así la comanda sale aunque ningún
+       celular tenga el agente abierto.</p>
+    <section class="download" aria-label="Descarga para Windows">
+      <div>
+        <div class="version-line" id="versionLineWin">Última versión</div>
+        <a class="btn" id="downloadWinBtn"
+           href="https://github.com/avaldezdev/wama-print-agent-releases/releases/download/windows-v1.0.2/WAMA-Print-Agent-Setup.exe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Descargar para Windows
+        </a>
+        <div class="small">Windows 10 u 11. No necesita permisos de administrador ni tener Java instalado.</div>
+      </div>
+    </section>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Instalá</h3>
+          <p>Abrí <b>WAMA-Print-Agent-Setup.exe</b> y seguí los pasos. Si aparece <i>"Windows
+             protegió su PC"</i>, tocá <b>Más información</b> y después <b>Ejecutar de todas
+             formas</b>.</p>
+          <div class="note">Para actualizar, instalá la versión nueva encima: cierra la anterior y
+             conserva la configuración.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Configurá</h3>
+          <p>Se abre la configuración con los mismos datos que en Android: servidor, token (uno
+             propio para esta PC), impresora por defecto y ancho de papel. Tocá <b>Probar
+             conexión</b>, tildá <b>Agente activo</b> y <b>Guardar</b>.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Listo</h3>
+          <ul>
+            <li>El agente queda como un <b>círculo verde junto al reloj</b>. Si está escondido,
+                abrí la flechita <b>^</b> y arrastralo a la barra.</li>
+            <li>Arranca solo al iniciar Windows. Si una impresora falla, se pone rojo y suena una
+                alarma.</li>
+            <li>Para desinstalarlo: <b>Configuración › Aplicaciones instaladas › WAMA Print Agent</b>.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
     <!-- 3. Novedades -->
-    <h2>Novedades</h2>
+    <h2>Novedades de Android</h2>
     <div class="changes" id="changes">
       <p>Consultá las novedades en el
         <a href="https://github.com/avaldezdev/wama-print-agent-releases/releases">historial de versiones</a>.</p>

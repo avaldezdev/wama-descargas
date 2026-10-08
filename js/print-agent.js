@@ -1,4 +1,4 @@
-// Completa la página con la última versión publicada en GitHub Releases.
+// Completa la página con las últimas versiones publicadas en GitHub Releases (APK y Windows).
 // Si la API no responde, la página igual funciona: el botón usa el enlace
 // /releases/latest/download/PrintAgent.apk, que GitHub resuelve siempre a la última.
 (function () {
@@ -45,4 +45,25 @@
       }
     })
     .catch(function () { /* queda el contenido por defecto */ });
+
+  // Windows: va en el mismo repo con etiqueta `windows-v*` y NO es "latest" (esa es del APK),
+  // así que se busca el release más nuevo con ese prefijo.
+  fetch('https://api.github.com/repos/' + REPO + '/releases?per_page=30', {
+    headers: { Accept: 'application/vnd.github+json' }
+  })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (list) {
+      var rel = (list || []).filter(function (x) {
+        return !x.draft && !x.prerelease && /^windows-v/.test(x.tag_name || '');
+      })[0];
+      if (!rel) return;
+      var version = String(rel.tag_name).replace(/^windows-v/, '');
+      var exe = (rel.assets || []).filter(function (a) { return a.name === 'WAMA-Print-Agent-Setup.exe'; })[0];
+      if (exe) document.getElementById('downloadWinBtn').href = exe.browser_download_url;
+
+      var size = exe ? ' · ' + (exe.size / 1048576).toFixed(0) + ' MB' : '';
+      document.getElementById('versionLineWin').innerHTML =
+        'Última versión <strong>' + esc(version) + '</strong> · ' + esc(fecha(rel.published_at)) + size;
+    })
+    .catch(function () { /* queda el enlace por defecto */ });
 })();
