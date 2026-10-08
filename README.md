@@ -1,7 +1,7 @@
 # Descargas WAMA — descargas.wama.com.py
 
-Portal estático de descargas de las apps complementarias de Wama-SIS. Hoy: **Print Agent**
-(`/print-agent`). La web principal `wama.com.py` sigue en Hostinger; este subdominio apunta
+Portal estático de descargas de las apps complementarias de Wama-SIS. Hoy: **Print Agent para
+Android** (`/print-agent`) y **Print Agent para Windows** (`/print-agent-windows`). La web principal `wama.com.py` sigue en Hostinger; este subdominio apunta
 por IP al servidor propio (Coolify).
 
 ## Cómo se actualiza una versión
@@ -10,8 +10,12 @@ por IP al servidor propio (Coolify).
 (`avaldezdev/wama-print-agent-releases`). Para publicar, desde el repo `Print-Agent`:
 
 ```bash
-node scripts/publicar.mjs --notas "Qué cambió" --notas "Otra novedad"
+node scripts/publicar.mjs --notas "Qué cambió"            # Android (release vX.Y.Z, "latest")
+node scripts/publicar-windows.mjs --notas "Qué cambió"    # Windows (release windows-vX.Y.Z, NO latest)
 ```
+
+La página de Android usa `/releases/latest` y la de Windows busca el release más nuevo con
+etiqueta `windows-v*`. Por eso los releases de Windows nunca se marcan como "latest".
 
 ## Deploy (una sola vez)
 
@@ -28,6 +32,8 @@ node scripts/publicar.mjs --notas "Qué cambió" --notas "Otra novedad"
 - [ ] `/print-agent` muestra la versión y las novedades (vienen de GitHub).
 - [ ] El botón **Descargar para Android** baja el APK.
 - [ ] `/print-agent/apk` redirige al último APK.
+- [ ] `/print-agent-windows` muestra la versión de Windows y el botón baja el instalador.
+- [ ] `/windows` y `/print-agent/windows` redirigen a `/print-agent-windows`.
 
 ## Sumar otra descarga
 
